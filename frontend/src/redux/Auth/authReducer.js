@@ -1,50 +1,45 @@
-import {
-  SIGNIN_USER_REQUEST,
-  SIGNIN_USER_SUCCESS,
-  SIGNIN_USER_FAILURE,
-  LOGOUT_USER,
-} from "./actionTypes";
+import { SIGNIN_USER_REQUEST, SIGNIN_USER_SUCCESS, SIGNIN_USER_FAILURE, LOGOUT_USER } from './actionTypes';
 
 let initState = {
-  error: false,
+	error: false,
 
-  isAuth: true,
+	isAuth: true,
 
-  email: "",
+	email: ''
 };
 
 const authReducer = (state = initState, { type, payload }) => {
-  switch (type) {
-    case SIGNIN_USER_REQUEST:
-      return {
-        ...state,
-        error: false,
-      };
+	switch (type) {
+		case SIGNIN_USER_REQUEST:
+			return {
+				...state,
+				error: false
+			};
 
-    case SIGNIN_USER_SUCCESS:
-      return {
-        ...state,
+		case SIGNIN_USER_SUCCESS:
+			return {
+				...state,
 
-        error: false,
-        isAuth: true,
-      };
+				error: false,
+				isAuth: true
+			};
 
-    case SIGNIN_USER_FAILURE:
-      return {
-        ...state,
+		case SIGNIN_USER_FAILURE:
+			return {
+				...state,
 
-        error: true,
-      };
-    case LOGOUT_USER:
-      return {
-        ...state,
-        isAuth: false,
-        error: false,
-      };
+				error: true
+			};
+		case LOGOUT_USER:
+			return {
+				...state,
+				isAuth: false,
+				error: false
+			};
 
-    default:
-      return state;
-  }
+		default:
+			return state;
+	}
 };
 
 export default authReducer;

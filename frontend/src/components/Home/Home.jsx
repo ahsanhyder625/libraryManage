@@ -48,7 +48,6 @@ export default function Home() {
   const bookData = useSelector((state) => state.app.bookData) || [];
   const dispatch = useDispatch();
 
-  console.log("bookData in navbar", bookData);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -57,7 +56,7 @@ export default function Home() {
       url: "http://localhost:8000/api/getBooks",
     })
       .then((res) => dispatch(setBookData(res.data)))
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
   }, [dispatch]);
 
 

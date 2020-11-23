@@ -1,26 +1,26 @@
-import { SET_BOOK_DATA, SET_CHAPTERS_DATA } from "./actionTypes";
+import { SET_BOOK_DATA, SET_CHAPTERS_DATA } from './actionTypes';
 
 let initState = {
-  bookData: [],
-  chapterData: [],
+	bookData: [],
+	chapterData: []
 };
 
 const reducer = (state = initState, { type, payload }) => {
-  switch (type) {
-    case SET_BOOK_DATA:
-      return {
-        ...state,
-        bookData: payload,
-      };
-    case SET_CHAPTERS_DATA:
-      return {
-        ...state,
-        chaptersData: payload,
-      };
+	switch (type) {
+		case SET_BOOK_DATA:
+			return {
+				...state,
+				bookData: payload
+			};
+		case SET_CHAPTERS_DATA:
+			return {
+				...state,
+				chaptersData: payload
+			};
 
-    default:
-      return state;
-  }
+		default:
+			return state;
+	}
 };
 
 export default reducer;
